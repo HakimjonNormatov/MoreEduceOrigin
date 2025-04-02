@@ -1,9 +1,9 @@
 package org.example.moreeduceorigin.controller;
 
-import org.example.moreeduceorigin.dto.TeacherDto;
+import org.example.moreeduceorigin.dto.AddressDto;
+import org.example.moreeduceorigin.model.Address;
 import org.example.moreeduceorigin.model.Result;
-import org.example.moreeduceorigin.model.Teacher;
-import org.example.moreeduceorigin.service.TeacherService;
+import org.example.moreeduceorigin.service.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
@@ -13,38 +13,37 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/teacher")
-public class TeacherController {
+@RequestMapping("/address")
+public class AddressController {
 
     @Autowired
-    TeacherService teacherService;
-
+    AddressService addressService;
 
     @GetMapping
-    public List<Teacher>getAll(){
-        return teacherService.getAllTeachers();
+    public List<Address>getAll(){
+        return addressService.getAllAddresses();
     }
 
     @GetMapping("/{id}")
-    public Teacher getById(@PathVariable Long id){
-        return teacherService.getTeacherById(id);
+    public Address getById(@PathVariable Long id){
+        return addressService.getAddressById(id);
     }
 
     @PostMapping
-    public HttpEntity<?>add(@RequestBody TeacherDto teacherDto){
-        Result result = teacherService.addTeacher(teacherDto);
+    public HttpEntity<?>add(@RequestBody AddressDto addressDto){
+        Result result = addressService.addAddress(addressDto);
         return new ResponseEntity<>(result , HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
-    public HttpEntity<?>put(@RequestBody TeacherDto teacherDto , @PathVariable Long id){
-        Result result = teacherService.updateTeacher(teacherDto, id);
+    public HttpEntity<?>put(@RequestBody AddressDto addressDto , @PathVariable Long id){
+        Result result = addressService.updateAddress(addressDto, id);
         return new ResponseEntity<>(result , HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
     public HttpEntity<?>delete(@PathVariable Long id){
-        Result result = teacherService.deleteTeacher(id);
+        Result result = addressService.deleteAddress(id);
         return new ResponseEntity<>(result , HttpStatus.OK);
     }
 
