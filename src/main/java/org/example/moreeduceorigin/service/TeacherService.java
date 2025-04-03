@@ -60,7 +60,7 @@ public class TeacherService {
             teacher.setPhonenumber(teacherDto.getPhonenumber());
             teacher.setUsername(teacherDto.getUsername());
             teacher.setAge(teacherDto.getAge());
-            Optional<Address> byId1 = addressRepo.findById(id);
+            Optional<Address> byId1 = addressRepo.findById(teacherDto.getAddress_Id());
             Address address = byId1.get();
             address.setCity(teacherDto.getCity());
             address.setRegion(teacherDto.getRegion());

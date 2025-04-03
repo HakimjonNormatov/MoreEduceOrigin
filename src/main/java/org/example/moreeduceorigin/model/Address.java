@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
@@ -22,6 +22,6 @@ public class Address {
     @Column(nullable = false)
     private String region;
     @CreatedDate
-    private LocalDate localDate=LocalDate.now();
+    private LocalDateTime localDateTime=LocalDateTime.now();
 
 }

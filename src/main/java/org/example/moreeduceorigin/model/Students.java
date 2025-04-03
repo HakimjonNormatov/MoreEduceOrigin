@@ -11,37 +11,34 @@ import org.springframework.data.annotation.CreatedDate;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Teacher  {
+public class Students {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column // Original ismini yozishi shart bomidi shuning uchun ( " nullable = false " ) deb yozmadim
-    private String original_full_name;
     @Email
     @Column(nullable = false , unique = true)
-    private String email;
-    @Column(nullable = false)
-    private String phonenumber;
+    private String Email;
     @Column(nullable = false , unique = true)
     private String Username;
     @Column(nullable = false)
     private Long age;
-    @ManyToOne
-    private Address address_Id;
-    @Enumerated(EnumType.STRING)
-    private Status status;
+    @Column(nullable = false)
+    private String phonenumber;
     @Column(nullable = false)
     private String password;
     @Column(nullable = false)
     private String repassword;
+    @ManyToOne
+    private Address address_id;
+    @Enumerated(EnumType.STRING)
+    private Status status;
     @CreatedDate
-    private LocalDateTime localDateTime= LocalDateTime.now();
-    @Column(nullable = false)
-    private String Fanlar;
+    private LocalDateTime localDateTime=LocalDateTime.now();
 
 }
