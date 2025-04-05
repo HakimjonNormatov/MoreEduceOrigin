@@ -30,8 +30,4 @@ public class StudentDto {
 
     private String region;
 
-
-
-
-
 }
