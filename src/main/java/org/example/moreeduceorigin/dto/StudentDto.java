@@ -24,6 +24,12 @@ public class StudentDto {
     private Long address_id;
 
 
+    //Address
+
+    private String city;
+
+    private String region;
+
 
 
 
