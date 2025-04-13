@@ -25,7 +25,7 @@ public class LessonService {
     public Result create(LessonDto lessonDto){
         boolean exists = lessonRepo.existsByEmailAndUsername(lessonDto.getName());
         if(exists){
-            return  new Result(false , "This name already exists" )
+            return  new Result(false , "This name already exists" );
         }
         Lesson lesson = new Lesson();
         lesson.setName(lessonDto.getName());
