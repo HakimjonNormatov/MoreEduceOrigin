@@ -1,8 +1,6 @@
 package org.example.moreeduceorigin.controller;
 
-import org.example.moreeduceorigin.dto.AddressDto;
 import org.example.moreeduceorigin.dto.CategoryDto;
-import org.example.moreeduceorigin.model.Address;
 import org.example.moreeduceorigin.model.Category;
 import org.example.moreeduceorigin.model.Result;
 import org.example.moreeduceorigin.service.CategoryService;
