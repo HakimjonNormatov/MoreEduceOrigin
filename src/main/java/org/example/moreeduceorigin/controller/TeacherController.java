@@ -21,31 +21,31 @@ public class TeacherController {
 
 
     @GetMapping
-    public List<Teacher>getAll(){
+    public List<Teacher> getAll() {
         return teacherService.getAllTeachers();
     }
 
     @GetMapping("/{id}")
-    public Teacher getById(@PathVariable Long id){
+    public Teacher getById(@PathVariable Long id) {
         return teacherService.getTeacherById(id);
     }
 
     @PostMapping
-    public HttpEntity<?>add(@RequestBody TeacherDto teacherDto){
+    public HttpEntity<?> add(@RequestBody TeacherDto teacherDto) {
         Result result = teacherService.addTeacher(teacherDto);
-        return new ResponseEntity<>(result , HttpStatus.OK);
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
-    public HttpEntity<?>put(@RequestBody TeacherDto teacherDto , @PathVariable Long id){
+    public HttpEntity<?> put(@RequestBody TeacherDto teacherDto, @PathVariable Long id) {
         Result result = teacherService.updateTeacher(teacherDto, id);
-        return new ResponseEntity<>(result , HttpStatus.OK);
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public HttpEntity<?>delete(@PathVariable Long id){
+    public HttpEntity<?> delete(@PathVariable Long id) {
         Result result = teacherService.deleteTeacher(id);
-        return new ResponseEntity<>(result , HttpStatus.OK);
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
 }

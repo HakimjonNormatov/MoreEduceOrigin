@@ -18,24 +18,24 @@ public class TestController {
     TestService testService;
 
     @GetMapping("/{id}")
-    public Test getById(Long id){
+    public Test getById(Long id) {
         return testService.getById(id);
     }
 
     @PostMapping
-    public HttpEntity<?> add(TestDto testDto){
+    public HttpEntity<?> add(TestDto testDto) {
         Result student = testService.create(testDto);
-        return new ResponseEntity<>(student , HttpStatus.OK);
+        return new ResponseEntity<>(student, HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
-    public HttpEntity<?>update(Long id , TestDto testDto){
-        Result result = testService.update(testDto , id);
-        return new ResponseEntity<>(result , HttpStatus.OK);
+    public HttpEntity<?> update(Long id, TestDto testDto) {
+        Result result = testService.update(testDto, id);
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public HttpEntity<?>delete(Long id) {
+    public HttpEntity<?> delete(Long id) {
         Result result = testService.delete(id);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }

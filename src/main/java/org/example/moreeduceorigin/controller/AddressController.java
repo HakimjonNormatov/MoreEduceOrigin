@@ -20,31 +20,31 @@ public class AddressController {
     AddressService addressService;
 
     @GetMapping
-    public List<Address>getAll(){
+    public List<Address> getAll() {
         return addressService.getAllAddresses();
     }
 
     @GetMapping("/{id}")
-    public Address getById(@PathVariable Long id){
+    public Address getById(@PathVariable Long id) {
         return addressService.getAddressById(id);
     }
 
     @PostMapping
-    public HttpEntity<?>add(@RequestBody AddressDto addressDto){
+    public HttpEntity<?> add(@RequestBody AddressDto addressDto) {
         Result result = addressService.addAddress(addressDto);
-        return new ResponseEntity<>(result , HttpStatus.OK);
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
-    public HttpEntity<?>put(@RequestBody AddressDto addressDto , @PathVariable Long id){
+    public HttpEntity<?> put(@RequestBody AddressDto addressDto, @PathVariable Long id) {
         Result result = addressService.updateAddress(addressDto, id);
-        return new ResponseEntity<>(result , HttpStatus.OK);
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public HttpEntity<?>delete(@PathVariable Long id){
+    public HttpEntity<?> delete(@PathVariable Long id) {
         Result result = addressService.deleteAddress(id);
-        return new ResponseEntity<>(result , HttpStatus.OK);
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
 }

@@ -25,20 +25,20 @@ public class LikeController {
     }
 
     @GetMapping("/{id}")
-    public Like getById(@PathVariable Long id){
+    public Like getById(@PathVariable Long id) {
         return likeService.getById(id);
     }
 
     @PostMapping
-    public HttpEntity<?> createLike(@RequestBody LikeDto likeDto){
+    public HttpEntity<?> createLike(@RequestBody LikeDto likeDto) {
         Result result = likeService.create(likeDto);
-        return new ResponseEntity<>(result , HttpStatus.OK);
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public HttpEntity<?> deleteLike(@PathVariable Long id){
+    public HttpEntity<?> deleteLike(@PathVariable Long id) {
         Result result = likeService.deleteLike(id);
-        return new ResponseEntity<>(result , HttpStatus.OK);
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
 }

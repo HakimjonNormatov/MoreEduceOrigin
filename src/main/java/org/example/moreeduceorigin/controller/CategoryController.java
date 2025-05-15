@@ -13,36 +13,36 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("category")
+@RequestMapping("/category")
 public class CategoryController {
     @Autowired
     CategoryService categoryService;
 
     @GetMapping
-    public List<Category> getAll(){
+    public List<Category> getAll() {
         return categoryService.getAllCategory();
     }
 
     @GetMapping("/{id}")
-    public Category getById(@PathVariable Long id){
+    public Category getById(@PathVariable Long id) {
         return categoryService.getById(id);
     }
 
     @PostMapping
-    public HttpEntity<?> add(@RequestBody CategoryDto categoryDto){
+    public HttpEntity<?> add(@RequestBody CategoryDto categoryDto) {
         Result result = categoryService.create(categoryDto);
-        return new ResponseEntity<>(result , HttpStatus.OK);
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
-    public HttpEntity<?>put(@RequestBody CategoryDto categoryDto , @PathVariable Long id){
+    public HttpEntity<?> put(@RequestBody CategoryDto categoryDto, @PathVariable Long id) {
         Result result = categoryService.update(categoryDto, id);
-        return new ResponseEntity<>(result , HttpStatus.OK);
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public HttpEntity<?>delete(@PathVariable Long id){
+    public HttpEntity<?> delete(@PathVariable Long id) {
         Result result = categoryService.delete(id);
-        return new ResponseEntity<>(result , HttpStatus.OK);
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 }

@@ -20,9 +20,9 @@ public class LoginController {
     LoginService loginService;
 
     @PostMapping
-    public HttpEntity<?>create(@RequestBody LoginDto loginDto) {
+    public HttpEntity<?> create(@RequestBody LoginDto loginDto) {
         Result result = loginService.CreateLogin(loginDto);
-        return new ResponseEntity<>(result , HttpStatus.OK);
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
 }
