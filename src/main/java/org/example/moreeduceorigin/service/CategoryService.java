@@ -30,7 +30,7 @@ public class CategoryService {
         categoryRepo.save(category);
         return  new Result(true , "Created");
     }
-    public Result update(CategoryDto categoryDto , Long id){
+    public Result update(Long id , CategoryDto categoryDto){
         Optional<Category> byId = categoryRepo.findById(id);
         Category category = byId.get();
         category.setName(categoryDto.getName());

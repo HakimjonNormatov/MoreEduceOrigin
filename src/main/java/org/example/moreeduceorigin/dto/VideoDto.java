@@ -16,5 +16,5 @@ public class VideoDto {
     private String duration;
     private String size;
     private String path;
-    private LocalDateTime created_date = LocalDateTime.now();
+
 }

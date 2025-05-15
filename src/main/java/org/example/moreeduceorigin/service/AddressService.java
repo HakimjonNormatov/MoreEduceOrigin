@@ -33,7 +33,7 @@ public class AddressService {
         return new Result(true , "Created");
     }
 
-    public Result updateAddress(AddressDto addressDto , Long id){
+    public Result updateAddress(Long id , AddressDto addressDto){
         Optional<Address> byId = addressRepo.findById(id);
         Address address = byId.get();
         address.setCity(addressDto.getCity());

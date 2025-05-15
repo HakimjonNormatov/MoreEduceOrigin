@@ -18,32 +18,31 @@ public class VideoService {
     public List<Video> getAll() {
         return videoRepo.findAll();
     }
-    public Video getById(Integer id) {
+    public Video getById(Long id) {
         return videoRepo.findById(id).get();
     }
     public Result create(VideoDto videoDto) {
         Video video = new Video();
         video.setName(videoDto.getName());
         video.setDuration(videoDto.getDuration());
-        video.setPath(videoDto.getPath());
         video.setSize(videoDto.getSize());
-        video.setCreated_date(videoDto.getCreated_date());
+        video.setPath(videoDto.getPath());
+
         videoRepo.save(video);
         return new Result(true, "Video created successfully");
     }
-    public Result update(VideoDto videoDto, Integer id) {
+    public Result update(VideoDto videoDto, Long id) {
         Video video = videoRepo.findById(id).get();
         video.setName(videoDto.getName());
+        video.setDuration(videoDto.getDuration());
         video.setSize(videoDto.getSize());
         video.setPath(videoDto.getPath());
-        video.setCreated_date(videoDto.getCreated_date());
-        video.setDuration(videoDto.getDuration());
         videoRepo.save(video);
         return new Result(true, "Video updated successfully");
     }
 
 
-    public Result delete(Integer id) {
+    public Result delete(Long id) {
         Video video = videoRepo.findById(id).get();
         videoRepo.delete(video);
         return new Result(true, "Video deleted successfully");

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("category")
+@RequestMapping("/category")
 public class CategoryController {
     @Autowired
     CategoryService categoryService;
@@ -36,7 +36,7 @@ public class CategoryController {
 
     @PutMapping("/{id}")
     public HttpEntity<?>put(@RequestBody CategoryDto categoryDto , @PathVariable Long id){
-        Result result = categoryService.update(categoryDto, id);
+        Result result = categoryService.update(id , categoryDto);
         return new ResponseEntity<>(result , HttpStatus.OK);
     }
 

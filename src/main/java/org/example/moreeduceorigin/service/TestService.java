@@ -31,7 +31,7 @@ public class TestService {
         testRepo.save(test);
         return  new Result( true , "Success");
     }
-    public Result update(TestDto testDto , Long id){
+    public Result update(Long id , TestDto testDto){
         Optional<Test> byId = testRepo.findById(id);
         Test test = byId.get();
         test.setName(testDto.getName());

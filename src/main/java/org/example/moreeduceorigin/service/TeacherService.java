@@ -51,7 +51,7 @@ public class TeacherService {
         return new Result(true , "Created");
     }
 
-    public Result updateTeacher(TeacherDto teacherDto , Long id){
+    public Result updateTeacher(Long id , TeacherDto teacherDto){
         Optional<Teacher> byId = teacherRepo.findById(id);
         if (byId.isPresent()) {
             Teacher teacher = byId.get();

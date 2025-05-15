@@ -37,7 +37,7 @@ public class LessonController {
 
     @PutMapping("/{id}")
     public HttpEntity<?> update(@PathVariable Long id, @RequestBody LessonDto lessonDto) {
-        Result result = lessonService.update(lessonDto, id);
+        Result result = lessonService.update(id , lessonDto);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 

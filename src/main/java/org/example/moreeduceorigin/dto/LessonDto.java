@@ -4,7 +4,7 @@ package org.example.moreeduceorigin.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.example.moreeduceorigin.model.LEVEL;
+import org.example.moreeduceorigin.model.temp.LEVEL;
 import org.example.moreeduceorigin.model.Students;
 import org.example.moreeduceorigin.model.Teacher;
 import org.example.moreeduceorigin.model.Test;

@@ -24,7 +24,7 @@ public class LessonService {
     }
 
     public Result create(LessonDto lessonDto) {
-        boolean exists = lessonRepo.existsByEmailAndUsername(lessonDto.getName());
+        boolean exists = lessonRepo.existsByName(lessonDto.getName());
         if (exists) {
             return new Result(false, "This name already exists");
         }
@@ -40,7 +40,7 @@ public class LessonService {
         return new Result(true, "Success");
     }
 
-    public Result update(LessonDto lessonDto, Long id) {
+    public Result update(Long id , LessonDto lessonDto) {
         Optional<Lesson> byId = lessonRepo.findById(id);
         Lesson lesson = byId.get();
         lesson.setName(lessonDto.getName());

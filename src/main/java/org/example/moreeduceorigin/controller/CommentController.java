@@ -18,7 +18,7 @@ public class CommentController {
     CommentService commentService;
 
     @GetMapping("/{id}")
-    public Comment getById(Integer id){
+    public Comment getById(Long id){
         return commentService.getById(id);
     }
 
@@ -28,12 +28,12 @@ public class CommentController {
         return new ResponseEntity<>(comment, HttpStatus.OK);
     }
     @PutMapping("/{id}")
-    public HttpEntity<?> update(@RequestBody CommentDto commentDto, @PathVariable Integer id){
-        Result comment= commentService.update(commentDto,id);
+    public HttpEntity<?> update(@RequestBody CommentDto commentDto, @PathVariable Long id){
+        Result comment= commentService.update(id , commentDto);
         return new ResponseEntity<>(comment, HttpStatus.OK);
     }
     @DeleteMapping("/{id}")
-    public HttpEntity<?> delete(@PathVariable Integer id){
+    public HttpEntity<?> delete(@PathVariable Long id){
         Result comment= commentService.delete(id);
         return new ResponseEntity<>(comment, HttpStatus.OK);
     }

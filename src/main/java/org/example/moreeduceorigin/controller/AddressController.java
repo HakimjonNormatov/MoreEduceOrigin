@@ -37,7 +37,7 @@ public class AddressController {
 
     @PutMapping("/{id}")
     public HttpEntity<?>put(@RequestBody AddressDto addressDto , @PathVariable Long id){
-        Result result = addressService.updateAddress(addressDto, id);
+        Result result = addressService.updateAddress(id , addressDto);
         return new ResponseEntity<>(result , HttpStatus.OK);
     }
 

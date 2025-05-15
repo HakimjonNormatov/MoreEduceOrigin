@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.example.moreeduceorigin.model.temp.LEVEL;
 
 @Data
 @AllArgsConstructor
@@ -23,8 +24,7 @@ public class Lesson {
     private Teacher teacher_id;
     @ManyToOne
     private Students all_student;
-    @Enumerated
-    //@ManyToMany
+    @Enumerated(EnumType.STRING)
     private LEVEL level_id;
     @ManyToOne
     private Test test_id;

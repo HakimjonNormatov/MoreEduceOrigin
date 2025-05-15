@@ -1,7 +1,5 @@
 package org.example.moreeduceorigin.model.temp;
 
-public enum Level {
-
-    EASY , Medium , HARD
-
+public enum LEVEL {
+    EASY, MEDIUM, HARD
 }

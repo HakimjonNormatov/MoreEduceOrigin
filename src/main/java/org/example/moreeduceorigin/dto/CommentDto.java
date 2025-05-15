@@ -13,6 +13,5 @@ public class CommentDto {
     private String name;
     private String email;
     private String comment;
-    private String created_date = LocalDateTime.now().toString();
     private Integer like_id;
 }

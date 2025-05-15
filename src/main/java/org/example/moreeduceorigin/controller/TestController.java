@@ -11,7 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("test")
+@RequestMapping("/test")
 public class TestController {
 
     @Autowired
@@ -23,19 +23,19 @@ public class TestController {
     }
 
     @PostMapping
-    public HttpEntity<?> add(TestDto testDto){
+    public HttpEntity<?> add(@RequestBody TestDto testDto){
         Result student = testService.create(testDto);
         return new ResponseEntity<>(student , HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
-    public HttpEntity<?>update(Long id , TestDto testDto){
-        Result result = testService.update(testDto , id);
+    public HttpEntity<?>update(@PathVariable Long id ,@RequestBody TestDto testDto){
+        Result result = testService.update(id , testDto);
         return new ResponseEntity<>(result , HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public HttpEntity<?>delete(Long id) {
+    public HttpEntity<?>delete(@PathVariable Long id) {
         Result result = testService.delete(id);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }

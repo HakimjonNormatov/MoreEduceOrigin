@@ -11,13 +11,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("video")
+@RequestMapping("/video")
 public class VideoController {
     @Autowired
     VideoService videoService;
 
     @GetMapping("/{id}")
-    public Video getById(Integer id){
+    public Video getById(Long id){
         return videoService.getById(id);
     }
 
@@ -27,12 +27,12 @@ public class VideoController {
         return new ResponseEntity<>(video, HttpStatus.OK);
     }
     @PutMapping("/{id}")
-    public HttpEntity<?> update(@RequestBody VideoDto videoDto, @PathVariable Integer id){
+    public HttpEntity<?> update(@RequestBody VideoDto videoDto, @PathVariable Long id){
         Result video= videoService.update(videoDto,id);
         return new ResponseEntity<>(video, HttpStatus.OK);
     }
     @DeleteMapping("/{id}")
-    public HttpEntity<?> delete(@PathVariable Integer id){
+    public HttpEntity<?> delete(@PathVariable Long id){
         Result video= videoService.delete(id);
         return new ResponseEntity<>(video, HttpStatus.OK);
     }
