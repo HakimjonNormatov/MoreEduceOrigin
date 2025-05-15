@@ -15,17 +15,18 @@ public class LessonService {
     @Autowired
     LessonRepo lessonRepo;
 
-    public List<Lesson> getAll(){
+    public List<Lesson> getAll() {
         return lessonRepo.findAll();
     }
 
-    public Lesson getById(Long id){
+    public Lesson getById(Long id) {
         return lessonRepo.findById(id).get();
     }
-    public Result create(LessonDto lessonDto){
+
+    public Result create(LessonDto lessonDto) {
         boolean exists = lessonRepo.existsByEmailAndUsername(lessonDto.getName());
-        if(exists){
-            return  new Result(false , "This name already exists" );
+        if (exists) {
+            return new Result(false, "This name already exists");
         }
         Lesson lesson = new Lesson();
         lesson.setName(lessonDto.getName());
@@ -36,9 +37,10 @@ public class LessonService {
         lesson.setTeacher_id(lessonDto.getTeacher_id());
         lesson.setTest_id(lessonDto.getTest_id());
         lessonRepo.save(lesson);
-        return new Result( true , "Success" );
+        return new Result(true, "Success");
     }
-    public Result update(LessonDto lessonDto ,Long id){
+
+    public Result update(LessonDto lessonDto, Long id) {
         Optional<Lesson> byId = lessonRepo.findById(id);
         Lesson lesson = byId.get();
         lesson.setName(lessonDto.getName());
@@ -49,10 +51,11 @@ public class LessonService {
         lesson.setTeacher_id(lessonDto.getTeacher_id());
         lesson.setTest_id(lessonDto.getTest_id());
         lessonRepo.save(lesson);
-        return new Result( true , "Success" );
+        return new Result(true, "Success");
     }
-    public Result delete(Long id){
+
+    public Result delete(Long id) {
         lessonRepo.deleteById(id);
-        return new Result( true , "Success" );
+        return new Result(true, "Success");
     }
 }
